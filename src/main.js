@@ -10,7 +10,8 @@ import { createI18n } from 'vue-i18n'
 
 
 const i18n = createI18n({
-    locale: document.cookie.split('=')[1],
+    locale: document.cookie.split('=')[1] || "EN",
+    fallbackLng: "AR",
     messages: {
         EN: EN,
         AR: AR,

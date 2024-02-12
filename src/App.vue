@@ -4,7 +4,7 @@ import { onMounted } from 'vue';
 // import HelloWorld from './components/Helloworld.vue'
 
 onMounted(() => {
-  document.cookie = 'locale=AR'
+  document.cookie = 'locale=EN'
 })
 </script>
 
