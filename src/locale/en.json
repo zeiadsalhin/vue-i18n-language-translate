@@ -5,5 +5,13 @@
     "Date": "Date Time Converter",
     "Temp": "Temperature Converter",
     "aboutt": "About me",
-    "follow": "follow"
+    "follow": "follow",
+    "hint": "type amount",
+    "currencyc": "Choose currency",
+    "selectm": "Select main currency",
+    "selects": "Select Target currency",
+    "convertconfirm": "You are converting",
+    "missing": "Please check missing values",
+    "convertb": "Convert",
+    "equal": "Equals"
 }

@@ -5,7 +5,9 @@
 <template>
   <div
     class="currency border-2 hover:border-4 border-green-950 p-10 text-center text-lg hover:text-green-600 hover:bg-slate-950">
-    <button class="transform transition ease-in-out duration-500 ">{{ $t('currency') }}</button>
+    <button class="transform transition ease-in-out duration-500 ">
+      <RouterLink class="hover:bg-transparent" to="/currency">{{ $t('currency') }}</RouterLink>
+    </button>
   </div>
   <div
     class="time border-2 hover:border-4 border-green-950 p-10 text-center text-lg hover:text-green-600 hover:bg-slate-950">
