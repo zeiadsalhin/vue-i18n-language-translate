@@ -22,14 +22,25 @@ onMounted(() => {
         </RouterLink>
       </div>
 
-      <div class="languages flex space-x-4 my-auto"><v-btn class="" @click="$i18n.locale = `EN`">EN</v-btn>
-        <v-btn id="v-btn" @click="$i18n.locale = `AR`">عربي</v-btn>
+      <div class="languages space-x-4 my-auto px-2">
+        <select v-model="$i18n.locale" name="Language" id="" class="bg-slate-950 px-2 py-1">
+          <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
+        </select>
       </div>
     </nav>
   </header>
 
   <RouterView />
 </template>
+<script>
+
+export default {
+  name: 'VueLanguageSwitcher',
+  data() {
+    return { langs: ['EN', 'AR'] }
+  }
+}
+</script>
 <style>
 v-btn {
   cursor: pointer;
