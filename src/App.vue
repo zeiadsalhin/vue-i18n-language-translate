@@ -17,8 +17,9 @@ onMounted(() => {
 
     <nav class="flex justify-center text-center md:space-x-28 space-x-1">
       <div class="nav text-xl">
-        <RouterLink class="m-5" active-class="text-green-600" to="/">{{ $t('home') }}</RouterLink>
-        <RouterLink class="m-5" active-class="text-green-600" to="/about">{{ $t('about') }}</RouterLink>
+        <RouterLink class="m-5 hover:bg-transparent" active-class="text-green-600" to="/">{{ $t('home') }}</RouterLink>
+        <RouterLink class="m-5 hover:bg-transparent" active-class="text-green-600" to="/about">{{ $t('about') }}
+        </RouterLink>
       </div>
 
       <div class="languages flex space-x-4 my-auto"><v-btn class="" @click="$i18n.locale = `EN`">EN</v-btn>
