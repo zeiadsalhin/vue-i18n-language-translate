@@ -10,12 +10,11 @@ function ss() {
     // console.log(url1 + v)
     // console.log(input1.value)
     const options = {
-        // mode: "no-cors"
+        headers: { Authentication: 'accept: application/json' }
     }
-    fetch("https://timeapi.io/api/Time/current/zone?timeZone=Africa/Cairo", options)
+    fetch(url1, options)
         .then(res => res.json())
         .then(data => console.log(data))
-        .then(console.log(sucess))
 }
 </script>
 <template>
