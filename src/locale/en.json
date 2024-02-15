@@ -13,5 +13,15 @@
     "convertconfirm": "You are converting",
     "missing": "Please check missing values",
     "convertb": "Convert",
-    "equal": "Equals"
+    "equal": "Equals",
+    "TDC": "Time and Date Converter",
+    "CT": "Current time:",
+    "CIP": "Current ip:",
+    "ISP": "ISP:",
+    "Search": "Enter Region, City, Or Country:",
+    "RL": "Requested Location:",
+    "DT": "Date and time:",
+    "TZ": "Time zone:",
+    "W": "Weather:",
+    "lu": "last update:"
 }

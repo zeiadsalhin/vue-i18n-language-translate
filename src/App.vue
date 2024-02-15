@@ -23,7 +23,7 @@ onMounted(() => {
       </div>
 
       <div class="languages space-x-4 my-auto px-2">
-        <select v-model="$i18n.locale" name="Language" id="" class="bg-slate-950 px-2 py-1">
+        <select v-model="$i18n.locale" name="Language" id="" class="bg-slate-950 px-2 py-1 outline-none">
           <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
         </select>
       </div>
@@ -38,8 +38,9 @@ export default {
   name: 'VueLanguageSwitcher',
   data() {
     return { langs: ['EN', 'AR'] }
-  }
+  },
 }
+
 </script>
 <style>
 v-btn {
