@@ -75,8 +75,9 @@ onMounted(() => {
         <form class="mx-auto text-center flex-col block" onsubmit="return false">
             <p class="p-2">{{ $t('Search') }}</p>
             <div>
-                <input type="text" v-model="searchTerm" class="inp p-2 text-slate-100 bg-slate-800 outline-none md:w-1/3"
-                    required placeholder="Enter a location" @input="handleInput">
+                <input type="text" v-model="searchTerm"
+                    class="inp p-2 text-slate-100 bg-slate-800 outline-none w-full md:w-1/3" required
+                    placeholder="Enter a location" @input="handleInput">
                 <ul v-if="searchTerm.length > 0 && searchResults.length > 0 && !isOptionSelected"
                     class="dropdown-menu md:w-1/3 mx-auto shadow-md">
                     <li v-for="result in searchResults" :key="result.id" @click="selectResult(result)">
@@ -85,9 +86,11 @@ onMounted(() => {
                 </ul>
                 <div v-if="isLoading">Loading...</div>
                 <div v-if="selectedLocation">
-                    <p id="requested" class="p-2 inline-block text-center text-2xl mt-5 font-bold">{{ $t('RL') }}
-                        <br>{{
-                            selectedLocation.place_name }}<img class="p-1 inline-block" width="50" :src="selectedLocation.flag">
+                    <p class="p-2 mt-5 font-semibold text-xl">{{ selectedLocation.place_name }}<img class="p-1 inline"
+                            width="50" :src="selectedLocation.flag"></p>
+                    <p id="requested" class="p-2 inline-block text-center text-2xl mt-1 font-bold">
+
+                        {{ $t('RL') }}
                     </p>
                     <div class="results md:flex justify-center space-y-5 md:space-y-0 md:space-x-20 mx-auto text-center">
                         <div class="1 p-2 block">
