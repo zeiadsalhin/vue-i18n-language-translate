@@ -17,6 +17,16 @@ function request() {
     if (selected.value == '' || value1.value == '' || selected2.value == '') {
         console.log("Empty")
         document.querySelector('.alert').classList.remove("hidden")
+
+        if (value1.value == '') {
+            document.querySelector("#amount").focus()
+        }
+        if (selected.value == '') {
+            document.querySelector("#s1").focus()
+        }
+        if (selected.value == '') {
+            document.querySelector("#s2").focus()
+        }
     } else {
         document.querySelector('.alert').classList.add("hidden")
         const selectedv = JSON.parse(JSON.stringify(selected.value))
@@ -50,10 +60,11 @@ onMounted(() => {
 <template>
     <div class="main flex-col justify-center text-center mx-auto md:p-2 md:w-1/3">
         <div class="1 flex-col">
-            <input v-model="value1" placeholder="amount - المبلغ" type="number"
-                class="text-slate-200 bg-slate-900 p-2 mb-5 w-full" required>
-            <button @click="m" class="block p-2 bg-gray-950 w-full">{{ $t('currencyc') }}</button>
-            <select v-model="selected" class="menu block outline-none p-3 space-y-3 bg-slate-950 w-full">
+            <input id="amount" v-model="value1" placeholder="amount - المبلغ" type="number"
+                class="dark:text-slate-200 dark:bg-slate-900 bg-slate-100 p-2 mb-5 w-full" required>
+            <button @click="m" class="block p-1 dark:bg-gray-950 bg-slate-300 w-full">{{ $t('currencyc') }}</button>
+            <select id="s1" v-model="selected"
+                class="menu block outline-none p-2 space-y-3 dark:bg-slate-950 bg-slate-100 w-full">
                 <option disabled value="please">{{ $t('selectm') }}</option>
                 <option v-for="(currency, i) in currencies" :key="`cur${i}`" :value="currency"
                     class="block hover:bg-transparent">
@@ -62,8 +73,9 @@ onMounted(() => {
         </div>
         <div class="to mx-auto w-1 text-center text-xl font-semibold p-2">{{ $t('to') }}</div>
         <div class="2 flex-col">
-            <button @click="m" class=" p-2 bg-gray-950 w-full">{{ $t('currencyc') }}</button>
-            <select v-model="selected2" class="menu block outline-none p-3 space-y-10 bg-slate-950 w-full">
+            <button @click="m" class=" p-1 dark:bg-gray-950 bg-slate-300 w-full">{{ $t('currencyc') }}</button>
+            <select id="s2" v-model="selected2"
+                class="menu block outline-none p-2 space-y-10 dark:bg-slate-950 bg-slate-100 w-full">
                 <option disabled value="please">{{ $t('selects') }}</option>
                 <option v-for="(currency, i) in currencies" :key="`cur${i}`" :value="currency"
                     class="block hover:bg-transparent">
@@ -76,11 +88,12 @@ onMounted(() => {
     }}
     </div>
     <p class="alert hidden text-center">{{ $t('missing') }}</p>
-    <v-btn @click="request" class="mx-auto text-center flex justify-center p-3 bg-slate-800 md:w-1/4 w-1/2 mb-10">{{
-        $t('convertb') }}</v-btn>
+    <v-btn @click="request"
+        class="mx-auto text-center flex justify-center p-3 dark:bg-slate-800 bg-slate-300 md:w-1/4 w-1/2 mb-10">{{
+            $t('convertb') }}</v-btn>
     <div class="3 flex-col">
-        <button @click="m" class="dropbtn mb-5 p-2 w-full bg-gray-950 font-semibold text-lg">{{ $t('equal') }}</button>
-        <div class="mx-auto w-1/2 bg-slate-950">
+        <button @click="m" class="dropbtn mb-5 p-2 w-full dark:bg-gray-950 font-semibold text-lg">{{ $t('equal') }}</button>
+        <div class="mx-auto w-1/2 dark:bg-slate-950">
             <p id="result" class="mx-auto flex justify-center text-center w-full text-xl font-semibold"></p>
         </div>
     </div>

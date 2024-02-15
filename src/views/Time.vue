@@ -76,11 +76,12 @@ onMounted(() => {
             <p class="p-2">{{ $t('Search') }}</p>
             <div>
                 <input type="text" v-model="searchTerm"
-                    class="inp p-2 text-slate-100 bg-slate-800 outline-none w-full md:w-1/3" required
+                    class="inp p-2 dark:text-zinc-100 dark:bg-zinc-800 bg-slate-100 outline-none w-full md:w-1/3" required
                     placeholder="Enter a location" @input="handleInput">
                 <ul v-if="searchTerm.length > 0 && searchResults.length > 0 && !isOptionSelected"
-                    class="dropdown-menu md:w-1/3 mx-auto shadow-md">
-                    <li v-for="result in searchResults" :key="result.id" @click="selectResult(result)">
+                    class="dropdown-menu bg-slate-50 dark:bg-zinc-950  md:w-1/3 mx-auto shadow-md">
+                    <li class="dark:hover:bg-zinc-900" v-for="result in searchResults" :key="result.id"
+                        @click="selectResult(result)">
                         {{ result.place_name }}
                     </li>
                 </ul>
@@ -184,7 +185,7 @@ export default {
 .dropdown-menu {
     margin-top: 5px;
     padding: 5px;
-    background-color: #333;
+    /* background-color: rgb(51, 51, 51); */
     list-style-type: none;
 }
 
@@ -194,6 +195,6 @@ export default {
 }
 
 .dropdown-menu li:hover {
-    background-color: #222;
+    /* background-color: #222; */
 }
 </style>
