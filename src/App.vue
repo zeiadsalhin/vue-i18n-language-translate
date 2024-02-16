@@ -9,7 +9,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="p-1 mb-20 text-lg">
+  <header class="p-1 mb-0 text-lg">
     <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
 
