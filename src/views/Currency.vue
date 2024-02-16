@@ -102,15 +102,15 @@ onMounted(() => {
     <div class="main flex justify-center mx-auto md:p-2 md:w-2/4 select-none md:-translate-x-7">
 
         <div class="dots flex-col mx-auto my-1 md:my-3 -translate-x-4">
-            <div class="d1 w-fit h-fit rounded-full bg-zinc-600">
+            <div class="d1 w-fit h-fit rounded-full dark:bg-zinc-600 bg-slate-200">
                 <p class="mx-auto my-auto px-5 py-3 text-xl">1</p>
             </div>
-            <div class="l w-1 h-12 bg-zinc-800 mx-auto m-2"></div>
-            <div class="d2 w-fit h-fit rounded-full bg-zinc-600">
+            <div class="l w-1 h-12 dark:bg-zinc-800 bg-slate-100 mx-auto m-2"></div>
+            <div class="d2 w-fit h-fit rounded-full dark:bg-zinc-600 bg-slate-200">
                 <p class="mx-auto my-auto px-5 py-3 text-xl">2</p>
             </div>
-            <div class="l w-1 h-12 bg-zinc-800 mx-auto m-2"></div>
-            <div class="d3 w-fit h-fit rounded-full bg-zinc-600">
+            <div class="l w-1 h-12 dark:bg-zinc-800 bg-slate-100 mx-auto m-2"></div>
+            <div class="d3 w-fit h-fit rounded-full dark:bg-zinc-600 bg-slate-200">
                 <p class="mx-auto my-auto px-5 py-3 text-xl">3</p>
             </div>
         </div>
