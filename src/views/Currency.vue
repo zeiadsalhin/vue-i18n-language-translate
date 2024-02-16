@@ -107,8 +107,7 @@ onMounted(() => {
                     for="amount">amount -
                     المبلغ</label>
                 <input id="amount" name="amount" v-model="value1" placeholder="" type="number" @focus="move" @blur="back"
-                    class="dark:text-slate-200 outline-none dark:bg-zinc-800 bg-slate-100 text-lg mt-5 mb-5 w-full"
-                    required>
+                    class="dark:text-slate-200 outline-none dark:bg-zinc-800  text-lg mt-5 mb-5 w-full" required>
             </div>
             <button @click="m" class="block p-1 dark:bg-inherit bg-slate-300 w-full">{{ $t('currencyc') }}</button>
             <select id="s1" v-model="selected"
