@@ -98,54 +98,76 @@ onMounted(() => {
         </RouterLink>
         <p class="select-none text-xl w-fit py-1.5">Back</p>
     </div>
-    <div class="main flex-col justify-center mx-auto md:p-2 md:w-1/3">
 
-        <div class="1 flex-col">
-            <div class="amount relative dark:bg-zinc-800 bg-slate-100 px-5 mb-5 outline-slate-400 rounded-lg">
-                <label
-                    class="label hover:cursor-text transform transition ease-in-out text-left absolute top-5 bg-inherit rounded-lg px-2 text-md font-semibold"
-                    for="amount">amount -
-                    المبلغ</label>
-                <input id="amount" name="amount" v-model="value1" placeholder="" type="number" @focus="move" @blur="back"
-                    class=" outline-none bg-transparent text-lg mt-5 mb-5 w-full" required>
+    <div class="main flex justify-center mx-auto md:p-2 md:w-2/4 select-none md:-translate-x-7">
+
+        <div class="dots flex-col mx-auto my-1 md:my-3 -translate-x-4">
+            <div class="d1 w-fit h-fit rounded-full bg-zinc-600">
+                <p class="mx-auto my-auto px-5 py-3 text-xl">1</p>
             </div>
-            <button @click="m" class="block p-1 dark:bg-inherit bg-slate-300 w-full">{{ $t('currencyc') }}</button>
-            <select id="s1" v-model="selected"
-                class="menu block outline-none p-2 space-y-3 dark:bg-zinc-800 bg-slate-100 w-full">
-                <option disabled value="please">{{ $t('selectm') }}</option>
-                <option v-for="(currency, i) in currencies" :key="`cur${i}`" :value="currency"
-                    class="block hover:bg-transparent">
-                    {{ currency }}</option>
-            </select>
+            <div class="l w-1 h-12 bg-zinc-800 mx-auto m-2"></div>
+            <div class="d2 w-fit h-fit rounded-full bg-zinc-600">
+                <p class="mx-auto my-auto px-5 py-3 text-xl">2</p>
+            </div>
+            <div class="l w-1 h-12 bg-zinc-800 mx-auto m-2"></div>
+            <div class="d3 w-fit h-fit rounded-full bg-zinc-600">
+                <p class="mx-auto my-auto px-5 py-3 text-xl">3</p>
+            </div>
         </div>
-        <div class="to mx-auto w-1 text-center text-xl font-semibold p-2">{{ $t('to') }}</div>
 
-        <div class="2 flex-col">
-            <button @click="m" class=" p-1 dark:bg-zinc-800 bg-slate-300 w-full">{{ $t('currencyc') }}</button>
-            <select id="s2" v-model="selected2"
-                class="menu block outline-none p-2 space-y-10 dark:bg-zinc-800 bg-slate-100 w-full">
-                <option disabled value="please">{{ $t('selects') }}</option>
-                <option v-for="(currency, i) in currencies" :key="`cur${i}`" :value="currency"
-                    class="block hover:bg-transparent">
-                    {{ currency }}</option>
-            </select>
+        <div class="main2 flex-col justify-center mx-auto md:p-2 w-full">
+            <div class="1 flex-col">
+                <div class="amount relative dark:bg-zinc-800 bg-slate-100 px-5 mb-10 outline-slate-400 rounded-lg">
+                    <label
+                        class="label hover:cursor-text transform transition ease-in-out text-left absolute top-5 bg-inherit rounded-md px-2 text-md font-semibold"
+                        for="amount">amount -
+                        المبلغ</label>
+                    <input id="amount" name="amount" v-model="value1" placeholder="" type="number" @focus="move"
+                        @blur="back" class=" outline-none bg-transparent text-lg mt-5 mb-5 w-full" required>
+                </div>
+                <button @click="m" class="block p-1 dark:bg-zinc-800 bg-slate-100 w-full rounded-t-lg">{{ $t('currencyc')
+                }}</button>
+                <select id="s1" v-model="selected"
+                    class="menu block outline-none p-3 space-y-3 dark:bg-zinc-800 bg-slate-100 w-full rounded-b-lg">
+                    <option disabled value="please">{{ $t('selectm') }}</option>
+                    <option v-for="(currency, i) in currencies" :key="`cur${i}`" :value="currency"
+                        class="block hover:bg-transparent">
+                        {{ currency }}</option>
+                </select>
+            </div>
+            <div class="to mx-auto w-1 text-center text-xl font-semibold p-2">{{ $t('to') }}</div>
+
+            <div class="2 flex-col">
+                <button @click="m" class=" p-1 dark:bg-zinc-800 bg-slate-100 w-full rounded-t-lg">{{ $t('currencyc')
+                }}</button>
+                <select id="s2" v-model="selected2"
+                    class="menu block outline-none p-3 space-y-10 dark:bg-zinc-800 bg-slate-100 w-full rounded-b-lg">
+                    <option disabled value="please">{{ $t('selects') }}</option>
+                    <option v-for="(currency, i) in currencies" :key="`cur${i}`" :value="currency"
+                        class="block hover:bg-transparent">
+                        {{ currency }}</option>
+                </select>
+            </div>
+            <div class="confirm mx-auto text-center p-5 text-red-600">{{ $t('convertconfirm') }} {{ value1 }} {{ selected }}
+                to
+                {{
+                    selected2
+                }}
+            </div>
+            <p class="alert hidden text-center">{{ $t('missing') }}</p>
+            <v-btn @click="request"
+                class="mx-auto text-center flex justify-center p-3 dark:bg-zinc-950 transform transition ease-in-out hover:bg-zinc-700 bg-zinc-300 md:w-1/4 w-1/2 mb-10">{{
+                    $t('convertb') }}</v-btn>
         </div>
     </div>
-    <div class="confirm mx-auto text-center p-5 text-red-600">{{ $t('convertconfirm') }} {{ value1 }} {{ selected }} to {{
-        selected2
-    }}
-    </div>
-    <p class="alert hidden text-center">{{ $t('missing') }}</p>
-    <v-btn @click="request"
-        class="mx-auto text-center flex justify-center p-3 dark:bg-zinc-950 transform transition ease-in-out hover:bg-zinc-700 bg-zinc-300 md:w-1/4 w-1/2 mb-10">{{
-            $t('convertb') }}</v-btn>
-    <div class="3 flex-col">
-        <button @click="m" class="dropbtn mb-5 p-2 w-full dark:bg-zinc-700 font-semibold text-lg">{{ $t('equal') }}</button>
+
+    <div class="3 flex-col w-3/4 mx-auto">
+        <button @click="m" class="dropbtn mb-5 p-2 w-full dark:bg-zinc-700 font-semibold text-lg">{{ $t('equal')
+        }}</button>
         <div class="mx-auto w-1/2 p-5 dark:bg-zinc-800">
             <p id="result" class="mx-auto flex justify-center text-center w-full text-xl font-semibold"></p>
         </div>
     </div>
-
     <p id="result2" class="mx-auto mt-20 flex justify-center text-center w-full text-xl font-semibold">Account ID:</p>
 </template>
 <script>
