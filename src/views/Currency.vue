@@ -57,7 +57,7 @@ function request() {
             var cl = (pp * value1.value).toFixed(3)
             document.querySelector("#result").innerHTML = cl + ' ' + last
             window.scrollBy({
-                top: 100,
+                top: 400,
                 behavior: "smooth"
             })
         });
@@ -164,7 +164,7 @@ onMounted(() => {
     <div class="3 flex-col w-3/4 mx-auto">
         <button @click="m" class="dropbtn mb-5 p-2 w-full dark:bg-zinc-700 font-semibold text-lg">{{ $t('equal')
         }}</button>
-        <div class="mx-auto w-1/2 p-5 dark:bg-zinc-800">
+        <div class="mx-auto w-full p-5 dark:bg-zinc-800">
             <p id="result" class="mx-auto flex justify-center text-center w-full text-xl font-semibold"></p>
         </div>
     </div>
