@@ -1,8 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 const value1 = ref('')
-const value2 = ref('')
-const value3 = ref('')
+
 
 // move label 
 function move() {
@@ -21,9 +20,21 @@ function back() {
 }
 
 function convert() {
-    // if (value1.value == '' && value2.value || value3.value == '') {
-    //     alert("Check value")
-    // }
+    if (!value1.value == '' && document.querySelector("#temperature1").checked || document.querySelector("#temperature2").checked) {
+        if (document.querySelector("#temperature1").checked) {
+            // alert("Checked with 1")
+            var result = value1.value
+            document.querySelector("#result").innerHTML = result + ' C'
+
+
+        } else if (document.querySelector("#temperature2").checked) {
+            // alert("Checked with 2")
+            var result = (value1.value * 1.8) + 32
+            document.querySelector("#result").innerHTML = result + ' F'
+        }
+    } else {
+        alert("Fill missing value")
+    }
 }
 </script>
 <template>
@@ -50,33 +61,33 @@ function convert() {
         <p class="select-none text-xl w-fit py-1.5">Back</p>
     </div>
 
-    <div class="main flex-col justify-center mx-auto w-4/5">
-        <div class="amount relative dark:bg-zinc-800 bg-slate-100 px-5 mb-10 outline-slate-400 rounded-lg">
+    <div class="main flex-col justify-center mx-auto w-4/5 select-none">
+        <div class="amount relative dark:bg-zinc-800 bg-slate-100 px-4 mb-10 outline-slate-400 rounded-lg">
             <label
                 class="label hover:cursor-text transform transition ease-in-out text-left absolute top-5 bg-inherit rounded-md px-2 text-md font-semibold"
-                for="amount">Enter Temperature </label>
+                for="amount">Enter Temperature in c</label>
             <input id="amount" name="amount" v-model="value1" placeholder="" type="number" @focus="move" @blur="back"
-                class=" outline-none bg-transparent text-lg mt-5 mb-5 w-full" required>
+                class=" outline-none bg-transparent text-lg mt-5 mb-3 w-full" required>
         </div>
 
         <div class="options flex space-x-20 w-1/4 justify-center mx-auto">
             <div class="1 flex">
-                <input id="temperature1" name="temperature" v-model="value2" type="radio" class=" ">
+                <input id="temperature1" name="temperature" type="radio" class=" ">
                 <label class="label hover:cursor-text text-left rounded-md px-2 text-md font-semibold my-auto"
                     for="amount">Celcius
                 </label>
             </div>
             <div class="2 flex">
-                <input id="temperature2" name="temperature" v-model="value3" type="radio" class=" ">
+                <input id="temperature2" name="temperature" type="radio" class=" ">
                 <label class="label hover:cursor-text text-left rounded-md px-2 text-md font-semibold my-auto"
-                    for="amount">Fehrenhiet
+                    for="amount">Fehrenhite
                 </label>
             </div>
         </div>
 
         <div class="result p-10">
             <v-btn @click="convert"
-                class="mx-auto text-center flex justify-center p-3 dark:bg-zinc-950 transform transition ease-in-out hover:bg-zinc-700 bg-zinc-300 md:w-1/4 w-1/2 mb-10">{{
+                class="mx-auto text-center flex justify-center p-3 dark:ripple-bg-zinc-800 ripple-bg-zinc-200 md:w-1/4 w-1/2 mb-10">{{
                     $t('convertb') }}</v-btn>
             <div class="mx-auto w-3/4 p- dark:bg-zinc-800">
                 <p id="result" class="mx-auto flex justify-center text-center w-full text-xl font-semibold"></p>

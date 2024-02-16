@@ -23,5 +23,8 @@
     "DT": "Date and time:",
     "TZ": "Time zone:",
     "W": "Weather:",
-    "lu": "last update:"
+    "lu": "last update:",
+    "ev": "Email Validation",
+    "pv": "Phone Validation",
+    "vat": "VAT Validation"
 }

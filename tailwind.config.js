@@ -3,8 +3,13 @@ export default {
   content: ["./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      ripple: theme => ({
+        colors: theme('colors'),
+        darken: 0.1,
+      })
+    },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-ripple')()],
 }
 
