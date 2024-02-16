@@ -24,6 +24,8 @@ function back() {
         document.querySelector(".label").classList.remove("-translate-y-8")
         document.querySelector(".label").classList.remove("-translate-x-2")
         document.querySelector(".amount").classList.remove("outline")
+    } else {
+        document.querySelector(".amount").classList.add("outline-2")
     }
 }
 
@@ -34,11 +36,9 @@ function request() {
 
         if (value1.value == '') {
             document.querySelector("#amount").focus()
-        }
-        if (selected.value == '') {
+        } else if (selected.value == '') {
             document.querySelector("#s1").focus()
-        }
-        if (selected.value == '') {
+        } else if (selected.value == '') {
             document.querySelector("#s2").focus()
         }
     } else {
@@ -56,6 +56,10 @@ function request() {
             console.log(pp)
             var cl = (pp * value1.value).toFixed(3)
             document.querySelector("#result").innerHTML = cl + ' ' + last
+            window.scrollBy({
+                top: 100,
+                behavior: "smooth"
+            })
         });
     }
 }
@@ -97,18 +101,18 @@ onMounted(() => {
     <div class="main flex-col justify-center mx-auto md:p-2 md:w-1/3">
 
         <div class="1 flex-col">
-            <div class="amount relative dark:bg-slate-900 bg-slate-100 px-5 mb-5 outline-slate-400 rounded-lg">
+            <div class="amount relative dark:bg-zinc-800 bg-slate-100 px-5 mb-5 outline-slate-400 rounded-lg">
                 <label
                     class="label hover:cursor-text transform transition ease-in-out text-left absolute top-5 bg-inherit rounded-lg px-2 text-md font-semibold"
                     for="amount">amount -
                     المبلغ</label>
                 <input id="amount" name="amount" v-model="value1" placeholder="" type="number" @focus="move" @blur="back"
-                    class="dark:text-slate-200 outline-none dark:bg-slate-900 bg-slate-100 text-lg mt-5 mb-5 w-full"
+                    class="dark:text-slate-200 outline-none dark:bg-zinc-800 bg-slate-100 text-lg mt-5 mb-5 w-full"
                     required>
             </div>
-            <button @click="m" class="block p-1 dark:bg-gray-950 bg-slate-300 w-full">{{ $t('currencyc') }}</button>
+            <button @click="m" class="block p-1 dark:bg-zinc-800 bg-slate-300 w-full">{{ $t('currencyc') }}</button>
             <select id="s1" v-model="selected"
-                class="menu block outline-none p-2 space-y-3 dark:bg-slate-950 bg-slate-100 w-full">
+                class="menu block outline-none p-2 space-y-3 dark:bg-zinc-800 bg-slate-100 w-full">
                 <option disabled value="please">{{ $t('selectm') }}</option>
                 <option v-for="(currency, i) in currencies" :key="`cur${i}`" :value="currency"
                     class="block hover:bg-transparent">
@@ -118,9 +122,9 @@ onMounted(() => {
         <div class="to mx-auto w-1 text-center text-xl font-semibold p-2">{{ $t('to') }}</div>
 
         <div class="2 flex-col">
-            <button @click="m" class=" p-1 dark:bg-gray-950 bg-slate-300 w-full">{{ $t('currencyc') }}</button>
+            <button @click="m" class=" p-1 dark:bg-zinc-800 bg-slate-300 w-full">{{ $t('currencyc') }}</button>
             <select id="s2" v-model="selected2"
-                class="menu block outline-none p-2 space-y-10 dark:bg-slate-950 bg-slate-100 w-full">
+                class="menu block outline-none p-2 space-y-10 dark:bg-zinc-800 bg-slate-100 w-full">
                 <option disabled value="please">{{ $t('selects') }}</option>
                 <option v-for="(currency, i) in currencies" :key="`cur${i}`" :value="currency"
                     class="block hover:bg-transparent">
@@ -137,8 +141,8 @@ onMounted(() => {
         class="mx-auto text-center flex justify-center p-3 dark:bg-zinc-950 transform transition ease-in-out hover:bg-zinc-700 bg-zinc-300 md:w-1/4 w-1/2 mb-10">{{
             $t('convertb') }}</v-btn>
     <div class="3 flex-col">
-        <button @click="m" class="dropbtn mb-5 p-2 w-full dark:bg-gray-950 font-semibold text-lg">{{ $t('equal') }}</button>
-        <div class="mx-auto w-1/2 dark:bg-slate-950">
+        <button @click="m" class="dropbtn mb-5 p-2 w-full dark:bg-zinc-700 font-semibold text-lg">{{ $t('equal') }}</button>
+        <div class="mx-auto w-1/2 p-5 dark:bg-zinc-800">
             <p id="result" class="mx-auto flex justify-center text-center w-full text-xl font-semibold"></p>
         </div>
     </div>

@@ -181,6 +181,10 @@ export default {
                 location.timezone = data.timezone_abbreviation
                 location.timezonetype = data.timezone_location || 'Unavailable Data, Please choose other location'
                 this.isLoading = false;
+                window.scrollBy({
+                    top: 2000,
+                    behavior: "smooth"
+                })
             } catch (error) {
                 console.error(error);
                 this.isLoading = false;
