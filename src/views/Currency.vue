@@ -110,7 +110,7 @@ onMounted(() => {
                     class="dark:text-slate-200 outline-none dark:bg-zinc-800 bg-slate-100 text-lg mt-5 mb-5 w-full"
                     required>
             </div>
-            <button @click="m" class="block p-1 dark:bg-zinc-800 bg-slate-300 w-full">{{ $t('currencyc') }}</button>
+            <button @click="m" class="block p-1 dark:bg-inherit bg-slate-300 w-full">{{ $t('currencyc') }}</button>
             <select id="s1" v-model="selected"
                 class="menu block outline-none p-2 space-y-3 dark:bg-zinc-800 bg-slate-100 w-full">
                 <option disabled value="please">{{ $t('selectm') }}</option>
