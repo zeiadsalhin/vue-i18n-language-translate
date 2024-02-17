@@ -1,7 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-
-// const value1 = ref('')
 // move label 
 function move() {
     document.querySelector(".label").classList.add("-translate-y-8")
@@ -48,9 +45,10 @@ function back() {
             <div class="text relative dark:bg-zinc-800 bg-slate-100 px-3 outline-slate-400 rounded-lg my-auto">
                 <label
                     class="label hover:cursor-text transform transition ease-in-out text-left absolute top-4 bg-inherit rounded-md px-2 text-md font-semibold"
-                    for="amount">{{ $t('emaill') }}</label>
-                <input id="amount" name="amount" v-model="value1" placeholder="" type="email" @focus="move" @blur="back"
-                    class=" outline-none bg-transparent text-lg mt-4 mb-3 md:w-96 w-full" required>
+                    for="amount">{{ $t('pn') }}</label>
+                <input id="amount" name="tel" v-model="value1" placeholder="" type="tel" pattern="[+]{1}[0-9]{11,14}"
+                    @focus="move" @blur="back" class=" outline-none bg-transparent text-lg mt-4 mb-3 md:w-96 w-full"
+                    required>
 
             </div>
             <div class="validatebutton p-2 mx-auto flex justify-center">
@@ -59,40 +57,41 @@ function back() {
                         $t('validateb') }}</button>
             </div>
         </div>
-        <h1 v-if="empty" class="text-center text-red-700">{{ $t('enteremail') }}</h1>
+        <h1 v-if="empty" class="text-center text-red-700">{{ $t('pni') }}</h1>
         <h1 v-if="isloading" class="text-center p-2 mt-20">{{ $t('loading') }}</h1>
-        <div v-if="Emailinfo != ''"
+        <div v-if="Phoneinfo != ''"
             class="results flex-col justify-center space-y-5 mx-auto md:w-1/3 w-full outline outline-1 outline-zinc-700 p-3 mt-10 mb-10">
             <div class="email flex md:space-x-5 space-x-2">
-                <p class="text-lg font-semibold my-auto">Email: </p>
-                <p class="my-auto text-md">{{ Emailinfo.email }}</p>
+                <p class="text-lg font-semibold my-auto">Number: </p>
+                <p class="my-auto text-md">{{ Phoneinfo.phone }}</p>
             </div>
             <div class="del flex  md:space-x-5 space-x-2">
-                <p class="text-lg font-semibold my-auto">Deliverable : </p>
-                <p class="my-auto text-md">{{ Emailinfo.deliverability }}</p>
+                <p class="text-lg font-semibold my-auto">Valid : </p>
+                <p class="my-auto text-md">{{ Phoneinfo.valid }}</p>
+                <p v-if="Phoneinfo.valid == false" class="my-auto text-md">{{ $t('falsep') }}</p>
             </div>
             <div class="val flex  md:space-x-5 space-x-2">
-                <p class="text-lg font-semibold my-auto">Valid : </p>
-                <p class="my-auto text-md">{{ Emailinfo.is_valid_format.text }}</p>
+                <p class="text-lg font-semibold my-auto">Format : </p>
+                <p class="my-auto text-md">{{ Phoneinfo.format.local }}</p>
             </div>
             <div class="free flex  md:space-x-5 space-x-2">
-                <p class="text-lg font-semibold my-auto">Free email? : </p>
-                <p class="my-auto text-md">{{ Emailinfo.is_free_email.text }}</p>
+                <p class="text-lg font-semibold my-auto">Country code : </p>
+                <p class="my-auto text-md">{{ Phoneinfo.country.code }}</p>
             </div>
             <div class="d flex  md:space-x-5 space-x-2">
-                <p class="text-lg font-semibold my-auto">Disposable : </p>
-                <p class="my-auto text-md">{{ Emailinfo.is_disposable_email.text }}</p>
+                <p class="text-lg font-semibold my-auto">Location : </p>
+                <p class="my-auto text-md">{{ Phoneinfo.location }}</p>
             </div>
             <div class="mx flex  md:space-x-5 space-x-2">
-                <p class="text-lg font-semibold my-auto">MX found? : </p>
-                <p class="my-auto text-md">{{ Emailinfo.is_mx_found.text }}</p>
+                <p class="text-lg font-semibold my-auto">Type : </p>
+                <p class="my-auto text-md">{{ Phoneinfo.type }}</p>
             </div>
             <div class="smtp flex  md:space-x-5 space-x-2">
-                <p class="text-lg font-semibold my-auto">SMTP Validity : </p>
-                <p class="my-auto text-md">{{ Emailinfo.is_smtp_valid.text }}</p>
+                <p class="text-lg font-semibold my-auto">Carrier : </p>
+                <p class="my-auto text-md">{{ Phoneinfo.carrier }}</p>
             </div>
         </div>
-        <h1 v-else class="text-center p-4">{{ $t('ep') }}</h1>
+        <h1 v-else class="text-center p-4">{{ $t('pnx') }}</h1>
 
     </div>
     <p class="fixed bottom-0 left-0 p-2 text-center font-thin mx-auto bg-inherit">This site does not collect information,
@@ -110,7 +109,7 @@ export default {
             empty: false,
             isloading: false,
             value1: '',
-            Emailinfo: [],
+            Phoneinfo: [],
         }
     },
     methods: {
@@ -119,10 +118,10 @@ export default {
                 this.empty = false
                 try {
                     this.isloading = true;
-                    const url = (`https://emailvalidation.abstractapi.com/v1/?api_key=ead4e7282901442497f9c385153c9d35&email=${this.value1}`)
+                    const url = (`https://phonevalidation.abstractapi.com/v1/?api_key=a3d70e9d34ea43eebc729e75784ddd25&phone=${this.value1}`)
                     const response = await fetch(url)
                     const data = await response.json()
-                    this.Emailinfo = data
+                    this.Phoneinfo = data
                     this.isloading = false
                 } catch (error) {
                     console.error(error);

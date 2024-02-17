@@ -26,5 +26,20 @@
     "lu": "last update:",
     "ev": "Email Validation",
     "pv": "Phone Validation",
-    "vat": "VAT Validation"
+    "vat": "VAT Validation",
+    "templ": "Enter Temperature in c",
+    "emaill": "Email",
+    "validateb": "Validate",
+    "enteremail": "Please enter your Email",
+    "loading": "Loading...",
+    "ep": "Enter Email to proceed",
+    "pn": "Phone number",
+    "pni": "Please Enter Your Phone number",
+    "pnx": "Enter Your number ex: +[1]-123-456-7890",
+    "falsep": ",please Check country code",
+    "vatl": "VAT *",
+    "entervat": "Enter Your VAT number XXXXXXXXXXX",
+    "vatempty": "Please Enter Your VAT",
+    "vatcheck": "Error Please Check again"
+
 }

@@ -25,12 +25,12 @@
         class="mx-auto w-4/5 transform transition ease-in-out duration-500 degree border-2 hover:border-4 border-green-950 md:p-10 p-5 text-center text-lg hover:text-green-600 hover:bg-slate-950">{{
           $t('ev') }}</button>
     </RouterLink>
-    <RouterLink onclick="alert('Soon')" class="hover:bg-transparent" to="/">
+    <RouterLink class="hover:bg-transparent" to="/phone">
       <button
         class="mx-auto w-4/5 transform transition ease-in-out duration-500 degree border-2 hover:border-4 border-green-950 md:p-10 p-5 text-center text-lg hover:text-green-600 hover:bg-slate-950">{{
           $t('pv') }}</button>
     </RouterLink>
-    <RouterLink onclick="alert('Soon')" class="hover:bg-transparent" to="/">
+    <RouterLink class="hover:bg-transparent" to="/vat">
       <button
         class="mx-auto w-4/5 transform transition ease-in-out duration-500 degree border-2 hover:border-4 border-green-950 md:p-10 p-5 text-center text-lg hover:text-green-600 hover:bg-slate-950">{{
           $t('vat') }}</button>

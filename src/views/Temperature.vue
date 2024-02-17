@@ -65,7 +65,7 @@ function convert() {
         <div class="amount relative dark:bg-zinc-800 bg-slate-100 px-4 mb-10 outline-slate-400 rounded-lg">
             <label
                 class="label hover:cursor-text transform transition ease-in-out text-left absolute top-5 bg-inherit rounded-md px-2 text-md font-semibold"
-                for="amount">Enter Temperature in c</label>
+                for="amount">{{ $t('templ') }}</label>
             <input id="amount" name="amount" v-model="value1" placeholder="" type="number" @focus="move" @blur="back"
                 class=" outline-none bg-transparent text-lg mt-5 mb-3 w-full" required>
         </div>
